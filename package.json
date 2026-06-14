@@ -1,0 +1,53 @@
+{
+  "name": "@directinference/ai-sdk",
+  "version": "0.1.0",
+  "description": "DirectInference (DI) provider for the Vercel AI SDK — one endpoint, hidden frontier-class routing, accept-any-model-id.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": ["dist/**/*", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "clean": "rm -rf dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "@ai-sdk/openai-compatible": "2.0.50",
+    "@ai-sdk/provider": "^3.0.10",
+    "@ai-sdk/provider-utils": "^3.0.0"
+  },
+  "peerDependencies": {
+    "zod": "^3.25.0 || ^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "zod": { "optional": true }
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "keywords": ["ai-sdk", "vercel", "directinference", "llm", "openai-compatible"],
+  "homepage": "https://github.com/Direct-Inference/ai-sdk-provider",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Direct-Inference/ai-sdk-provider.git"
+  },
+  "engines": { "node": ">=18" }
+}
